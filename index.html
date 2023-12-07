@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Rapid Sorting Game</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>Rapid Sorting Game</title>
+</head>
+<body>
+
+  <svg style="display:none;">
+
+    <symbol version="1.1" id="star" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
+   <g>
+    <path class="st0" d="M512,224.438c0-63.766-51.703-115.469-115.484-115.469c-8.781,0-17.328,1-25.531,2.859
+      C365.656,52.984,316.219,6.875,256,6.875c-60.234,0-109.672,46.109-114.984,104.953c-8.219-1.859-16.766-2.859-25.531-2.859
+      C51.703,108.969,0,160.672,0,224.438c0,47.594,28.797,88.469,69.906,106.141c-10.297,17.281-16.234,37.484-16.234,59.063
+      c0,63.766,51.703,115.484,115.484,115.484c34.625,0,65.672-15.266,86.844-39.406c21.156,24.141,52.219,39.406,86.844,39.406
+      c63.781,0,115.484-51.719,115.484-115.484c0-21.578-5.938-41.781-16.25-59.063C483.203,312.906,512,272.031,512,224.438z
+       M256,372.531c-53.563,0-97-43.406-97-97c0-53.563,43.438-96.984,97-96.984s96.984,43.422,96.984,96.984
+      C352.984,329.125,309.563,372.531,256,372.531z"/>
+  </g>
+    </symbol>
+
+    <symbol id="circle" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="800px" height="800px" viewBox="0 0 800 800" style="enable-background:new 0 0 800 800;"
+       xml:space="preserve">
+       <path d="M49.4,51.1c-5-1.8-9.4-3-13.4-3.8v-3.8c7.2-0.7,12.8-6.8,12.8-14.1c0-7.8-6.4-14.2-14.2-14.2c-1.2,0-2.3,0.1-3.4,0.4  C29.5,8.4,23.5,3,19.3,3C14.5,3,7.1,10.2,7.1,19.2c0,8.5,5,15.4,11.2,16.1v11.1C10,47.6,6.5,51,6.2,51.3c-0.4,0.4-0.4,1,0,1.4  c0.4,0.4,1,0.4,1.4,0c0.1-0.1,10.8-10.6,41,0.2c0.1,0,0.2,0.1,0.3,0.1c0.4,0,0.8-0.3,0.9-0.7C50.2,51.8,49.9,51.2,49.4,51.1z   M34.5,17.1c6.7,0,12.2,5.5,12.2,12.2c0,6.3-4.7,11.4-10.8,12.1v-3.6l6.9-6.9c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L35.9,35V24.9  c0-0.6-0.4-1-1-1s-1,0.4-1,1V35l-3-3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l4.4,4.4v3.6c-4.6-0.2-8.6-3-10.5-7.1  c4.7-2.2,8.1-8.2,8.1-15.2c0-0.6,0-1.1-0.1-1.7C32.5,17.2,33.5,17.1,34.5,17.1z M9.1,19.2C9.1,11.5,15.4,5,19.3,5  s10.3,6.5,10.3,14.2c0,7.3-4.1,13.4-9.3,14.1v-2.5l5.1-5.1c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-3.7,3.7v-2.5c0,0,0,0,0,0V22l5.2-5.2  c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-3.8,3.8v-4.6c0-0.6-0.4-1-1-1s-1,0.4-1,1v8.3l-4.7-4.7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4  l6.1,6.1v7.5C13.1,32.6,9.1,26.5,9.1,19.2z M20.3,46.1V35.3c0.4,0,0.8-0.1,1.2-0.2c2.2,4.9,7,8.2,12.4,8.5v3.4  C28.5,45.9,24,45.8,20.3,46.1z"/>
+  </symbol>
+
+  <symbol id="heart" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="176.104px" height="176.104px" viewBox="0 0 176.104 176.104" style="enable-background:new 0 0 176.104 176.104;"
+       xml:space="preserve">
+  <g>
+    <path d="m179.638,90.081c-7.693-6.157-11.276-15.514-11.276-29.446v-17.635h11.527v-43h-93v43h11.527v17.635c0,14.874-3.073,23.681-10.276,29.446-19.44,15.559-27.369,31.983-27.369,56.692v100.088c0,10.981 8.934,19.916 19.915,19.916h105.405c10.981,0 19.916-8.935 19.916-19.916v-100.088c0-22.616-9.611-43.28-26.369-56.692z"/>
+  </g>
+  </symbol>
+
+  <symbol version="1.1" id="square" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<path clip-rule="evenodd" d="M20.9348 10.2799C20.7241 10.2516 20.4301 10.25 19.9375 10.25H18.9375V8.75001H19.9375C19.9525 8.75001 19.9674 8.75001 19.9822 8.75C20.4151 8.74995 20.8119 8.74991 21.1347 8.79331C21.4902 8.8411 21.8659 8.95355 22.1749 9.26257L21.6446 9.7929L22.1749 9.26257C22.484 9.57159 22.5964 9.94732 22.6442 10.3028C22.6876 10.6256 22.6876 11.0224 22.6875 11.4553C22.6875 11.4701 22.6875 11.485 22.6875 11.5V12.5C22.6875 12.515 22.6875 12.5299 22.6875 12.5448C22.6876 12.9776 22.6876 13.3744 22.6442 13.6972C22.5964 14.0527 22.484 14.4284 22.1749 14.7374C21.8659 15.0465 21.4902 15.1589 21.1347 15.2067C20.8119 15.2501 20.4151 15.2501 19.9822 15.25C19.9674 15.25 19.9525 15.25 19.9375 15.25H18.9375V13.75H19.9375C20.4301 13.75 20.7241 13.7484 20.9348 13.7201C21.0314 13.7071 21.0798 13.6918 21.1015 13.6828C21.1066 13.6808 21.1099 13.6792 21.1118 13.6781L21.1143 13.6768L21.1156 13.6743C21.1166 13.6724 21.1183 13.6691 21.1203 13.664C21.1293 13.6423 21.1446 13.5939 21.1576 13.4973C21.1859 13.2866 21.1875 12.9926 21.1875 12.5V11.5C21.1875 11.0074 21.1859 10.7134 21.1576 10.5027C21.1446 10.4061 21.1293 10.3578 21.1203 10.336C21.1183 10.3309 21.1166 10.3276 21.1156 10.3257L21.1143 10.3232L21.1118 10.3219C21.1099 10.3209 21.1066 10.3192 21.1015 10.3172C21.0798 10.3082 21.0314 10.2929 20.9348 10.2799Z" fill="#000000" fill-rule="evenodd"/><path clip-rule="evenodd" d="M2.67412 6.77772C2 7.78661 2 9.19108 2 12C2 14.8089 2 16.2134 2.67412 17.2223C2.96596 17.659 3.34096 18.034 3.77772 18.3259C4.78661 19 6.19108 19 9 19H13C15.8089 19 17.2134 19 18.2223 18.3259C18.659 18.034 19.034 17.659 19.3259 17.2223C20 16.2134 20 14.8089 20 12C20 9.19108 20 7.78661 19.3259 6.77772C19.034 6.34096 18.659 5.96596 18.2223 5.67412C17.2134 5 15.8089 5 13 5H9C6.19108 5 4.78661 5 3.77772 5.67412C3.34096 5.96596 2.96596 6.34096 2.67412 6.77772ZM12.6825 10.0017C12.9596 9.69385 12.9346 9.21963 12.6267 8.94254C12.3189 8.66544 11.8446 8.6904 11.5675 8.99828L9.31754 11.4983C9.11941 11.7184 9.06939 12.0346 9.18989 12.3051C9.31039 12.5757 9.57883 12.75 9.87501 12.75H10.441L9.31754 13.9983C9.04045 14.3062 9.06541 14.7804 9.37329 15.0575C9.68117 15.3346 10.1554 15.3096 10.4325 15.0017L12.6825 12.5017C12.8806 12.2816 12.9306 11.9654 12.8101 11.6949C12.6896 11.4243 12.4212 11.25 12.125 11.25H11.559L12.6825 10.0017Z" fill="#000000" fill-rule="evenodd"/>
+</symbol>
+
+  <symbol id="triangle" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 382.365 382.365" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 382.365 382.365">
+    <g>
+      <path d="m378.248,312.399l-162.38-271.915c-5.239-8.774-14.468-14.011-24.686-14.011s-19.446,5.237-24.685,14.011l-162.379,271.915c-5.375,8.999-5.494,19.815-0.32,28.932s14.522,14.561 25.005,14.561h324.76c10.482,0 19.831-5.443 25.005-14.561 5.174-9.116 5.054-19.932-0.32-28.932z"/>
+    </g>
+  </symbol>
+
+    <symbol version="1.1" id="cancel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 49.498 49.498" style="enable-background:new 0 0 49.498 49.498;" xml:space="preserve">
+<g>
+	<path style="fill: white;" d="M0,9.899L9.899,0l14.849,14.849L39.597,0.001l9.9,9.899L34.648,24.753l14.85,14.844l-9.9,9.9
+		l-14.849-14.85L9.9,49.498l-9.899-9.9l14.848-14.844L0,9.899z"/>
+</g>
+</symbol>
+
+    <symbol version="1.1" id="restart" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 14.155 14.155" style="enable-background:new 0 0 14.155 14.155;" xml:space="preserve">
+<g>
+	<path d="M12.083,1.887c-0.795-0.794-1.73-1.359-2.727-1.697v2.135c0.48,0.239,0.935,0.55,1.334,0.95
+		c1.993,1.994,1.993,5.236,0,7.229c-1.993,1.99-5.233,1.99-7.229,0c-1.991-1.995-1.991-5.235,0-7.229
+		C3.466,3.269,3.482,3.259,3.489,3.25h0.002l1.181,1.179L4.665,0.685L0.923,0.68l1.176,1.176C2.092,1.868,2.081,1.88,2.072,1.887
+		c-2.763,2.762-2.763,7.243,0,10.005c2.767,2.765,7.245,2.765,10.011,0C14.844,9.13,14.847,4.649,12.083,1.887z"/>
+</g>
+</symbol>
+
+  </svg>
+
+  <main>
+
+    <div class="menu" id="menu">
+        <div class="menu__content">
+          <h1>Rapid Sorting Game</h1>
+          <h2>How to play :</h2>
+          <ul>
+            <li>Remember card (shape and color)</li>
+            <li>Compare the current card with previous one</li>
+            <li>There are two cases:</li>
+            <ol>
+              <li>The current shape has a dot in the center: comparative attribute is color</li>
+              <li>The current shape HASN'T a dot in the center: comparative attribute is shape</li>
+            </ol>
+            <li>Same attribute: swipe the same direction</li>
+            <li>Different attribute: swipe opposite direction</li>
+            <li>First card: swipe any direction</li>
+          </ul>
+          <h2>Controls :</h2>
+          <ul>
+            <li>Mouse / Touch swipe or keyboard arrows</li>
+          </ul>
+          <button id="start-button" class="button" type="button">Start</button>
+        </div>
+    </div>
+
+    <div class="game-over" id="game-over">
+       <div class="game-over__content">
+         <p class="game-over__score-text">Your score : <span class="game-over__score" id="game-over-score">0</span></p>
+         <div class="score-scale">
+            <div class="score-scale__scale">
+              <div class="score-scale__correct-number" id="correct-number">15</div>
+              <div class="score-scale__incorrect-number" id="incorrect-number">2</div>
+              <div class="score-scale__scale-correct" id="correct-scale"></div>
+            </div>
+         </div>
+         <p class="game-over__comparing">You scored higher than <span id="comparing-percent">0%</span> of people</p>
+         <button id="menu-button" class="button" type="button">Menu</button>
+         <button id="restart-button" class="button" type="button">Again</button>
+       </div>
+    </div>
+
+    <div class="game-scene" id="game-scene">
+      <div class="restart-button" id="restart-button-in-game">
+        <svg viewBox="0 0 32 32">
+          <use xlink:href="#restart"></use>
+        </svg>
+      </div>
+      <div class="start-timer" id="start-timer-wrapper">
+        <div class="start-timer__value" id="start-timer">3</div>
+      </div>
+      <div class="gradient" id="gradient">
+        <div class="gradient__item" style="background: radial-gradient(circle, white, #373737 90%);"></div>
+      </div>
+      <div class="separator" id="separator">
+        <div class="separator__wrapper">
+          <div class="separator__line"></div>
+        </div>
+        <div class="separator__side separator__side--left"></div>
+        <div class="separator__side separator__side--right"></div>
+      </div>
+      <div class="score">
+        <div class="score__volume">00000</div>
+        <div class="score__slider" id="score">
+          <div class="score__item">
+            <div class="score__digit active">0</div>
+          </div>
+        </div>
+      </div>
+      <div class="fail">
+        <div class="fail__icon" id="fail">
+          <svg viewBox="0 0 32 32">
+            <use xlink:href="#cancel"></use>
+          </svg>
+        </div>
+      </div>
+      <div class="timer" id="timer">30</div>
+      <div class="slider" id="slider"></div>
+      <div class="bonus" id="bonus">
+        <div class="bonus__circle">
+          <div class="bonus__content">
+            <p class="bonus__factor" id="bonus-factor">x2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
